@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.salaboy.jbpm5.multi_process_evaluation.MultiProcessEvaluationTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.188 sec

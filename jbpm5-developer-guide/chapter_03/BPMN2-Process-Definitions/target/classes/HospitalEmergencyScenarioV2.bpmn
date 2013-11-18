@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_nExm8NHJEeGKz7sqBrl53A" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" targetNamespace="http://www.omg.org/bpmn20">
+  <bpmn2:process id="hospitalEmergencyV1" drools:packageName="default" name="" isExecutable="true">
+    <bpmn2:startEvent id="_65CCE4C1-1008-47FB-A3FC-C89C3C06E7B5" drools:bgcolor="#ffffff" name="">
+      <bpmn2:outgoing>_D3BC92D6-AE3A-4BD6-9362-6ADD7DC538B7</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:businessRuleTask id="_62D92DF0-019A-40C5-BFF3-39DC64F279C4" name="Assign Bed">
+      <bpmn2:incoming>_D3BC92D6-AE3A-4BD6-9362-6ADD7DC538B7</bpmn2:incoming>
+      <bpmn2:outgoing>_29C618DC-BB95-4057-B42C-93FCA5AABE13</bpmn2:outgoing>
+    </bpmn2:businessRuleTask>
+    <bpmn2:sequenceFlow id="_D3BC92D6-AE3A-4BD6-9362-6ADD7DC538B7" sourceRef="_65CCE4C1-1008-47FB-A3FC-C89C3C06E7B5" targetRef="_62D92DF0-019A-40C5-BFF3-39DC64F279C4"/>
+    <bpmn2:userTask id="_63C55AC6-72AC-467B-A20A-C8496CDD9BB6" drools:scriptFormat="http://www.java.com/java" name="Coordinate Staff">
+      <bpmn2:incoming>_2FA6DEA5-4449-4E5A-B43B-86CD61561348</bpmn2:incoming>
+      <bpmn2:outgoing>_80178622-E5DB-44F3-8C5D-7B35294E990D</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_nExm8dHJEeGKz7sqBrl53A">
+        <bpmn2:dataInput id="_63C55AC6-72AC-467B-A20A-C8496CDD9BB6_PriorityInput" name="Priority"/>
+        <bpmn2:dataInput id="_63C55AC6-72AC-467B-A20A-C8496CDD9BB6_deadlineInput" name="deadline"/>
+        <bpmn2:inputSet id="_nExm8tHJEeGKz7sqBrl53A">
+          <bpmn2:dataInputRefs>_63C55AC6-72AC-467B-A20A-C8496CDD9BB6_PriorityInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_63C55AC6-72AC-467B-A20A-C8496CDD9BB6_deadlineInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_nExm89HJEeGKz7sqBrl53A">
+        <bpmn2:targetRef>_63C55AC6-72AC-467B-A20A-C8496CDD9BB6_PriorityInput</bpmn2:targetRef>
+        <bpmn2:assignment id="_nExm9NHJEeGKz7sqBrl53A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_nExm9dHJEeGKz7sqBrl53A">0</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_nExm9tHJEeGKz7sqBrl53A">_63C55AC6-72AC-467B-A20A-C8496CDD9BB6_PriorityInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_nExm99HJEeGKz7sqBrl53A">
+        <bpmn2:targetRef>_63C55AC6-72AC-467B-A20A-C8496CDD9BB6_deadlineInput</bpmn2:targetRef>
+        <bpmn2:assignment id="_nExm-NHJEeGKz7sqBrl53A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_nExm-dHJEeGKz7sqBrl53A">Giorni</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_nExm-tHJEeGKz7sqBrl53A">_63C55AC6-72AC-467B-A20A-C8496CDD9BB6_deadlineInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:task id="_045BBEA7-8DAC-44A4-B5F7-FD51D9CC1E18" drools:taskName="Notify Gate to Ambulance" name="Notify Gate to Ambulance">
+      <bpmn2:incoming>_80178622-E5DB-44F3-8C5D-7B35294E990D</bpmn2:incoming>
+      <bpmn2:outgoing>_265A2D7C-7453-4ED8-99B5-36B382B23D9A</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_nExm-9HJEeGKz7sqBrl53A">
+        <bpmn2:dataInput id="_045BBEA7-8DAC-44A4-B5F7-FD51D9CC1E18_TaskNameInput" name="TaskName"/>
+        <bpmn2:inputSet id="_nExm_NHJEeGKz7sqBrl53A"/>
+        <bpmn2:outputSet id="_nExm_dHJEeGKz7sqBrl53A"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_nEyOANHJEeGKz7sqBrl53A">
+        <bpmn2:targetRef>_045BBEA7-8DAC-44A4-B5F7-FD51D9CC1E18_TaskNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="_nEyOAdHJEeGKz7sqBrl53A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_nEyOAtHJEeGKz7sqBrl53A">Notify Gate to Ambulance</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_nEyOA9HJEeGKz7sqBrl53A">_045BBEA7-8DAC-44A4-B5F7-FD51D9CC1E18_TaskNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_80178622-E5DB-44F3-8C5D-7B35294E990D" sourceRef="_63C55AC6-72AC-467B-A20A-C8496CDD9BB6" targetRef="_045BBEA7-8DAC-44A4-B5F7-FD51D9CC1E18"/>
+    <bpmn2:userTask id="_D713A620-2166-45BC-B66E-AC410C1C725D" drools:scriptFormat="http://www.java.com/java" name="Check In Patient">
+      <bpmn2:incoming>_265A2D7C-7453-4ED8-99B5-36B382B23D9A</bpmn2:incoming>
+      <bpmn2:outgoing>_47187014-1723-4323-9B75-787F7AC571A1</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_nEyOBNHJEeGKz7sqBrl53A">
+        <bpmn2:dataInput id="_D713A620-2166-45BC-B66E-AC410C1C725D_PriorityInput" name="Priority"/>
+        <bpmn2:dataInput id="_D713A620-2166-45BC-B66E-AC410C1C725D_deadlineInput" name="deadline"/>
+        <bpmn2:inputSet id="_nEyOBdHJEeGKz7sqBrl53A">
+          <bpmn2:dataInputRefs>_D713A620-2166-45BC-B66E-AC410C1C725D_PriorityInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_D713A620-2166-45BC-B66E-AC410C1C725D_deadlineInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_nEyOBtHJEeGKz7sqBrl53A">
+        <bpmn2:targetRef>_D713A620-2166-45BC-B66E-AC410C1C725D_PriorityInput</bpmn2:targetRef>
+        <bpmn2:assignment id="_nEyOB9HJEeGKz7sqBrl53A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_nEyOCNHJEeGKz7sqBrl53A">0</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_nEyOCdHJEeGKz7sqBrl53A">_D713A620-2166-45BC-B66E-AC410C1C725D_PriorityInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_nEyOCtHJEeGKz7sqBrl53A">
+        <bpmn2:targetRef>_D713A620-2166-45BC-B66E-AC410C1C725D_deadlineInput</bpmn2:targetRef>
+        <bpmn2:assignment id="_nEyOC9HJEeGKz7sqBrl53A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_nEyODNHJEeGKz7sqBrl53A">Giorni</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_nEyODdHJEeGKz7sqBrl53A">_D713A620-2166-45BC-B66E-AC410C1C725D_deadlineInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="_265A2D7C-7453-4ED8-99B5-36B382B23D9A" sourceRef="_045BBEA7-8DAC-44A4-B5F7-FD51D9CC1E18" targetRef="_D713A620-2166-45BC-B66E-AC410C1C725D"/>
+    <bpmn2:endEvent id="_D71CFEEE-4997-468B-9CF5-64E53165665C" drools:bgcolor="#ffffff" name="">
+      <bpmn2:incoming>_47187014-1723-4323-9B75-787F7AC571A1</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="_47187014-1723-4323-9B75-787F7AC571A1" sourceRef="_D713A620-2166-45BC-B66E-AC410C1C725D" targetRef="_D71CFEEE-4997-468B-9CF5-64E53165665C"/>
+    <bpmn2:sequenceFlow id="_29C618DC-BB95-4057-B42C-93FCA5AABE13" sourceRef="_62D92DF0-019A-40C5-BFF3-39DC64F279C4" targetRef="_D62DECF6-47F1-4C88-8E41-B0C27CBFA3FC"/>
+    <bpmn2:sequenceFlow id="_2FA6DEA5-4449-4E5A-B43B-86CD61561348" name="Yes
+" sourceRef="_D62DECF6-47F1-4C88-8E41-B0C27CBFA3FC" targetRef="_63C55AC6-72AC-467B-A20A-C8496CDD9BB6"/>
+    <bpmn2:task id="_422AB723-B2F8-4772-845C-A2675CC679D9" drools:taskName="Notify Rejection to Ambulance" name="Notify Rejection to Ambulance">
+      <bpmn2:incoming>_7AB23FCF-93BF-4A04-83AF-BBF9B3BD7FB7</bpmn2:incoming>
+      <bpmn2:outgoing>_EA56AE03-CFDA-42A7-BAB5-4D12B197A20F</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_nEyODtHJEeGKz7sqBrl53A">
+        <bpmn2:dataInput id="_422AB723-B2F8-4772-845C-A2675CC679D9_TaskNameInput" name="TaskName"/>
+        <bpmn2:inputSet id="_nEyOD9HJEeGKz7sqBrl53A"/>
+        <bpmn2:outputSet id="_nEyOENHJEeGKz7sqBrl53A"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_nEyOEdHJEeGKz7sqBrl53A">
+        <bpmn2:targetRef>_422AB723-B2F8-4772-845C-A2675CC679D9_TaskNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="_nEyOEtHJEeGKz7sqBrl53A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_nEyOE9HJEeGKz7sqBrl53A">Notify Rejection to Ambulance</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_nEyOFNHJEeGKz7sqBrl53A">_422AB723-B2F8-4772-845C-A2675CC679D9_TaskNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_7AB23FCF-93BF-4A04-83AF-BBF9B3BD7FB7" name="No
+" sourceRef="_D62DECF6-47F1-4C88-8E41-B0C27CBFA3FC" targetRef="_422AB723-B2F8-4772-845C-A2675CC679D9"/>
+    <bpmn2:endEvent id="_7FB45EDD-3764-4F76-959B-4A2E624DC46A" drools:bgcolor="#ffffff" name="">
+      <bpmn2:incoming>_EA56AE03-CFDA-42A7-BAB5-4D12B197A20F</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="_EA56AE03-CFDA-42A7-BAB5-4D12B197A20F" sourceRef="_422AB723-B2F8-4772-845C-A2675CC679D9" targetRef="_7FB45EDD-3764-4F76-959B-4A2E624DC46A"/>
+    <bpmn2:exclusiveGateway id="_D62DECF6-47F1-4C88-8E41-B0C27CBFA3FC" drools:bgcolor="#ffffff" drools:dg="" name="is Bed Assigned?
+" gatewayDirection="Diverging">
+      <bpmn2:incoming>_29C618DC-BB95-4057-B42C-93FCA5AABE13</bpmn2:incoming>
+      <bpmn2:outgoing>_2FA6DEA5-4449-4E5A-B43B-86CD61561348</bpmn2:outgoing>
+      <bpmn2:outgoing>_7AB23FCF-93BF-4A04-83AF-BBF9B3BD7FB7</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="_nEyOFdHJEeGKz7sqBrl53A">
+    <bpmndi:BPMNPlane id="_nEyOFtHJEeGKz7sqBrl53A" bpmnElement="hospitalEmergencyV1">
+      <bpmndi:BPMNShape id="_nEyOF9HJEeGKz7sqBrl53A" bpmnElement="_65CCE4C1-1008-47FB-A3FC-C89C3C06E7B5">
+        <dc:Bounds height="30.0" width="30.0" y="77.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_nEyOGNHJEeGKz7sqBrl53A" bpmnElement="_62D92DF0-019A-40C5-BFF3-39DC64F279C4">
+        <dc:Bounds height="80.0" width="100.0" x="60.0" y="53.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_nEyOGdHJEeGKz7sqBrl53A" bpmnElement="_D3BC92D6-AE3A-4BD6-9362-6ADD7DC538B7">
+        <di:waypoint xsi:type="dc:Point" x="15.0" y="92.0"/>
+        <di:waypoint xsi:type="dc:Point" x="110.0" y="93.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_nEyOGtHJEeGKz7sqBrl53A" bpmnElement="_63C55AC6-72AC-467B-A20A-C8496CDD9BB6">
+        <dc:Bounds height="80.0" width="100.0" x="315.0" y="53.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_nEyOG9HJEeGKz7sqBrl53A" bpmnElement="_045BBEA7-8DAC-44A4-B5F7-FD51D9CC1E18">
+        <dc:Bounds height="80.0" width="100.0" x="450.0" y="53.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_nEyOHNHJEeGKz7sqBrl53A" bpmnElement="_80178622-E5DB-44F3-8C5D-7B35294E990D">
+        <di:waypoint xsi:type="dc:Point" x="365.0" y="93.0"/>
+        <di:waypoint xsi:type="dc:Point" x="500.0" y="93.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_nEyOHdHJEeGKz7sqBrl53A" bpmnElement="_D713A620-2166-45BC-B66E-AC410C1C725D">
+        <dc:Bounds height="80.0" width="100.0" x="585.0" y="53.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_nEyOHtHJEeGKz7sqBrl53A" bpmnElement="_265A2D7C-7453-4ED8-99B5-36B382B23D9A">
+        <di:waypoint xsi:type="dc:Point" x="500.0" y="93.0"/>
+        <di:waypoint xsi:type="dc:Point" x="635.0" y="93.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_nEyOH9HJEeGKz7sqBrl53A" bpmnElement="_D71CFEEE-4997-468B-9CF5-64E53165665C">
+        <dc:Bounds height="28.0" width="28.0" x="716.0" y="74.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_nEyOINHJEeGKz7sqBrl53A" bpmnElement="_47187014-1723-4323-9B75-787F7AC571A1">
+        <di:waypoint xsi:type="dc:Point" x="635.0" y="93.0"/>
+        <di:waypoint xsi:type="dc:Point" x="730.0" y="88.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_nEyOIdHJEeGKz7sqBrl53A" bpmnElement="_29C618DC-BB95-4057-B42C-93FCA5AABE13">
+        <di:waypoint xsi:type="dc:Point" x="110.0" y="93.0"/>
+        <di:waypoint xsi:type="dc:Point" x="200.0" y="93.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_nEyOItHJEeGKz7sqBrl53A" bpmnElement="_2FA6DEA5-4449-4E5A-B43B-86CD61561348">
+        <di:waypoint xsi:type="dc:Point" x="200.0" y="93.0"/>
+        <di:waypoint xsi:type="dc:Point" x="365.0" y="93.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_nEyOI9HJEeGKz7sqBrl53A" bpmnElement="_422AB723-B2F8-4772-845C-A2675CC679D9">
+        <dc:Bounds height="80.0" width="100.0" x="315.0" y="150.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_nEyOJNHJEeGKz7sqBrl53A" bpmnElement="_7AB23FCF-93BF-4A04-83AF-BBF9B3BD7FB7">
+        <di:waypoint xsi:type="dc:Point" x="200.0" y="93.0"/>
+        <di:waypoint xsi:type="dc:Point" x="200.0" y="190.0"/>
+        <di:waypoint xsi:type="dc:Point" x="365.0" y="190.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_nEy1ENHJEeGKz7sqBrl53A" bpmnElement="_7FB45EDD-3764-4F76-959B-4A2E624DC46A">
+        <dc:Bounds height="28.0" width="28.0" x="456.0" y="172.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_nEy1EdHJEeGKz7sqBrl53A" bpmnElement="_EA56AE03-CFDA-42A7-BAB5-4D12B197A20F">
+        <di:waypoint xsi:type="dc:Point" x="365.0" y="190.0"/>
+        <di:waypoint xsi:type="dc:Point" x="470.0" y="186.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_nEy1EtHJEeGKz7sqBrl53A" bpmnElement="_D62DECF6-47F1-4C88-8E41-B0C27CBFA3FC">
+        <dc:Bounds height="40.0" width="40.0" x="180.0" y="73.0"/>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
+

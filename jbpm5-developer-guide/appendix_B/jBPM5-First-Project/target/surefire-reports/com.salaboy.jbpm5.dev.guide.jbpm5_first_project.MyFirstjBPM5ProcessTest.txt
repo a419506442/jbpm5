@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.salaboy.jbpm5.dev.guide.jbpm5_first_project.MyFirstjBPM5ProcessTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.02 sec
